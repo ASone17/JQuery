@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        #div3, #div2 {
+            padding: 5px;
+            text-align: center;
+            background-color: #cf62f3;
+            border: solid 1px #880f0f;
+        }
+        #div3 {
+            padding: 50px;
+            background-color: #dd648a;
+            display: none;
+        }
+        #div4 {
+            padding: 10px;
+            background-color: #dbef00;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fade</h1>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:rgb(191, 107, 240);padding: 20px;">
+        I am a hidden secret</div>
+    <button id="btn1">click here</button><br><br>
+    <h1>SlideDown</h1>
+    <div id="div2">click here to slidedown...</div>
+    <div id="div3">One day we are gonna find an alternative of the planet Earth but it will be only for the riches</div><br><br>
+    <button id="btn2">click here</button><br><br>
+    <div id="div4">Click me to toggle a hidden secret! </div>
+    <script>
+        $('#btn1').click(function () {
+            $('#div1').fadeIn('slow');
+        });
+
+        $('#div2').click(function () {
+            $('#div3').slideDown('slow');
+        });
+
+        $('#btn2').click(function () {
+            $('#div4').toggle('slow');
+        });  
+    </script>
+</body>
+</html>

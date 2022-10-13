@@ -1,0 +1,30 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>textbox</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+        Email : <input type="text " id="demo" placeholder="Enter Email id">
+        <br><br>
+
+        <button type="button" id="btn"> Show Email</button>
+        <br>
+
+        <div id='d' 
+            style="height: 20px;  width:400px;  background-color:rgb(231, 240, 241); padding : 10px;">
+        </div>
+
+        <script>
+            $(function(){
+                $('#btn').click(function() {
+                    let res = document.getElementById('Demo').value;
+                    $('#d').text(res);
+                })
+            })
+        </script>
+        
+    </body>
+    </html>
