@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(244, 198, 97);
+        }
+        .container{
+            border: 2px solid black;
+            background-color: rgb(160, 169, 214);
+            width: 40%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3 style="margin-top: 0;"><b>Posting data using Jqyeery AJAX POST request</b></h3>
+        <label for="userid">User ID:</label><input type="text" id="userid"><br><br>
+        <label for="title">Title:</label><input type="text" id="title"><br><br>
+        <label for="completed">Completed?</label><input type="checkbox" id="completed"><br><br>
+        <button>Post details</button>
+     </div><br>
+ 
+     <div class="container" style="display: none;">
+     <div id="detils"></div>
+     </div>
+     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+         $(document).ready(function(){
+            $("button").click(function(){
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/todos",
+                    type:'POST',
+                    dataType:'json',
+                    data: {
+                        Userid : $("#userid").val(),
+                        title : $("#title").val(),
+                        completed : $("#completed").is(':checked')
+                    },
+                    success:function(data){
+                        console.log(data);
+                        var result = `<b>User Added Succesfully</b> <br><br>
+                                    The details are:<br>
+                                    Id: ${data.id}<br>
+                                    UserId: ${data.Userid}<br>
+                                    Title:${data.title}<br>
+                                    Completed: ${data.completed}`
+
+                        $('#details').html(result)
+                        $('.container').css('display','block')
+                    }
+                })
+             })
+        })
+    </script>
+</body>
+</html>
